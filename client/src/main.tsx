@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import Header from "./components/Header";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -25,6 +26,12 @@ const router = createBrowserRouter([
         "https://content.guardianapis.com/search?api-key=acf9a718-be16-4cd3-b323-7e72f5639698",
       ),
   },
+  {
+    path: "/Header",
+    element: <Header />,
+  },
+  // Try adding a new route! For example, "/about" with an About component
+
 ]);
 
 /* ************************************************************************* */
