@@ -17,12 +17,14 @@ import Header from "./components/Header";
 
 /* ************************************************************************* */
 
-// Create router configuration with routes
-// You can add more routes as you build out your app!
 const router = createBrowserRouter([
   {
-    path: "/", // The root path
-    element: <App />, // Renders the App component for the home page
+    path: "/",
+    element: <App />,
+    loader: () =>
+      fetch(
+        "https://content.guardianapis.com/search?api-key=acf9a718-be16-4cd3-b323-7e72f5639698",
+      ),
   },
   {
     path: "/Header",

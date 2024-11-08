@@ -1,0 +1,29 @@
+body {
+  background-color: #4b4a4a;
+}
+
+.article-card {
+  border-radius: 7px;
+  padding: 1em;
+  width: 80%;
+  height: 10em;
+  background-color: #969696;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 630px) {
+    height: 17em;
+    width: fit-content;
+  }
+}
+
+.article-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  color: rgb(240, 238, 238);
+  font-family: "Times New Roman", Times, serif;
+}
+
+.article-card a {
+  color: #ffc400;
+  text-decoration: none;
+}
