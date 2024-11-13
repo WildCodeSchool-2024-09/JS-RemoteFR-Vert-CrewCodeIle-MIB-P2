@@ -1,18 +1,26 @@
 .sortBar {
-  border-radius: 7px;
-  padding: 1em;
-  width: 30%;
-  height: 20em;
-  background-color: #969696;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+	border-radius: 7px;
+	padding: 1em;
+	width: 93%;
+	height: 17em;
+	background-color: #6c6c6c;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
+	@media screen and (max-width: 890px) {
+		display: none;
+	}
+}
 .sortButtons {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
 }
 
 .buttons {
-  background-color: white;
-  color: black;
+	background-color: #ffc400;
+	color: black;
+	margin: 0.3em;
+	padding: 0.3em;
+	border-radius: 5px;
+	font-size: 2em;
 }
