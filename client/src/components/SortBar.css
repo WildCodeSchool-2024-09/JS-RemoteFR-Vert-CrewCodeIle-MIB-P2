@@ -1,0 +1,18 @@
+.sortBar {
+  border-radius: 7px;
+  padding: 1em;
+  width: 30%;
+  height: 20em;
+  background-color: #969696;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sortButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  background-color: white;
+  color: black;
+}

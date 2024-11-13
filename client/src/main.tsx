@@ -7,7 +7,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import ArticlesContainer from "./components/ArticlesContainer";
 import Header from "./components/Header";
+import SortBarPage from "./pages/SortBarPage";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -25,12 +27,22 @@ const router = createBrowserRouter([
       fetch(
         "https://content.guardianapis.com/search?api-key=acf9a718-be16-4cd3-b323-7e72f5639698",
       ),
+    children: [
+      {
+        path: "Article/:id",
+        element: <ArticlesContainer />,
+      },
+      {
+        path: "sortbar",
+        element: <SortBarPage />,
+      },
+      {
+        path: "/Header",
+        element: <Header />,
+      },
+    ],
+    // Try adding a new route! For example, "/about" with an About component
   },
-  {
-    path: "/Header",
-    element: <Header />,
-  },
-  // Try adding a new route! For example, "/about" with an About component
 ]);
 
 /* ************************************************************************* */
