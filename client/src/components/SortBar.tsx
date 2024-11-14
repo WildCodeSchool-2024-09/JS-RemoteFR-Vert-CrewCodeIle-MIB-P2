@@ -1,33 +1,35 @@
 import "./SortBar.css";
 
-type Category = {
-	id: string;
-	label: string;
-};
+export default function SortBar({
+	categories,
+	setCurrentCategory,
+}: {
+	categories: string[];
+	setCurrentCategory: (v: string) => void;
+}) {
+	const handleClick = (value: string) => setCurrentCategory(value);
 
-type SortBarProps = {
-	categories: Category[];
-	categorySelected: (filter: string) => void;
-};
-
-const SortBar = ({ categories = [], categorySelected }: SortBarProps) => {
-	categories;
 	return (
 		<section className="sortBar">
 			<div className="sortButtons">
-				{categories.map((category) => (
+				<button
+					type="button"
+					onClick={() => handleClick("")}
+					className="buttons"
+				>
+					Tous les articles
+				</button>
+				{categories.map((c) => (
 					<button
-						key={category.id}
-						className="buttons"
 						type="button"
-						onClick={() => categorySelected(category.id)}
+						key={c}
+						onClick={() => handleClick(c)}
+						className="buttons"
 					>
-						{category.label}
+						{c}
 					</button>
 				))}
 			</div>
 		</section>
 	);
-};
-
-export default SortBar;
+}

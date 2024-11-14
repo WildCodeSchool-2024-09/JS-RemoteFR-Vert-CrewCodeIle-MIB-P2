@@ -1,20 +1,17 @@
 import "./Article.css";
 
-type ArticleProps = {
-  id: string;
-  webTitle: string;
-  webUrl: string;
-};
+// biome-ignore lint/style/useImportType: <explanation>
+import { ArticleType } from "../lib/definitions";
 
-const Article = ({ id, webTitle, webUrl }: ArticleProps) => {
-  return (
-    <section className="article-card" key={id}>
-      <h3> {webTitle} </h3>
-      <a href={webUrl} target="blank">
-        Lire l'article
-      </a>
-    </section>
-  );
+const Article = ({ id, webTitle, webUrl }: ArticleType) => {
+	return (
+		<section className="article-card" key={id}>
+			<h3>{webTitle}</h3>
+			<a href={webUrl} target="_blank" rel="noopener noreferrer">
+				Lire l'article
+			</a>
+		</section>
+	);
 };
 
 export default Article;
