@@ -1,33 +1,23 @@
-import { useLoaderData } from "react-router-dom";
+import type { ArticleType } from "../lib/definitions";
 import Article from "./Article";
 import "./ArticlesContainer.css";
 
-type ArticleData = {
-  id: string;
-  webTitle: string;
-  webUrl: string;
-};
-
-type ApiResponse = {
-  response: {
-    results: ArticleData[];
-  };
-};
-
-const ArticlesContainer = () => {
-  const data = useLoaderData() as ApiResponse;
+export default function ArticlesContainer({
+  articles,
+  currentCategory,
+}: {
+  articles: ArticleType[];
+  currentCategory: string;
+}) {
   return (
-    <section className="articles-container">
-      {data.response.results.map((article) => (
-        <Article
-          key={article.id}
-          id={article.id}
-          webTitle={article.webTitle}
-          webUrl={article.webUrl}
-        />
-      ))}
-    </section>
+    <>
+      <section className="articles-container">
+        {articles
+          .filter((a) => a.pillarName.includes(currentCategory))
+          .map((a: ArticleType) => (
+            <Article key={a.id} {...a} />
+          ))}
+      </section>
+    </>
   );
-};
-
-export default ArticlesContainer;
+}

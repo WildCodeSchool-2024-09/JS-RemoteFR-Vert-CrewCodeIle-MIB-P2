@@ -7,7 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
-import Header from "./components/Header";
+import HomePage from "./pages/HomePage";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -17,20 +17,29 @@ import Header from "./components/Header";
 
 /* ************************************************************************* */
 
+const apiKey = import.meta.env.VITE_API_KEY;
+
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
-    loader: () =>
-      fetch(
-        "https://content.guardianapis.com/search?api-key=acf9a718-be16-4cd3-b323-7e72f5639698",
-      ),
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+        loader: async () => {
+          const response = await fetch(
+            `https://content.guardianapis.com/search?page-size=30&api-key=${apiKey}`,
+          );
+          const data = await response.json();
+          return data.response.results;
+        },
+      },
+      {
+        path: "*",
+        element: <h1>Error 404</h1>,
+      },
+    ],
   },
-  {
-    path: "/Header",
-    element: <Header />,
-  },
-  // Try adding a new route! For example, "/about" with an About component
 ]);
 
 /* ************************************************************************* */
