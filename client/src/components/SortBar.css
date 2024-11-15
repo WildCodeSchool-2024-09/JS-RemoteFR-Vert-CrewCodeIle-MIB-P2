@@ -5,15 +5,12 @@
 	padding: 1em;
 	margin: 1em;
 	width: 95%;
-	height: 27em;
+	height: fit-content;
 	background-color: #6c6c6c;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
 	@media screen and (max-width: 890px) {
 		display: none;
-	}
-	@media screen and (max-width: 1550px) {
-		height: 29em;
 	}
 }
 .sortButtons {
