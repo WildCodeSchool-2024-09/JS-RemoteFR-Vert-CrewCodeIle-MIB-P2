@@ -1,5 +1,4 @@
-// biome-ignore lint/style/useImportType: <explanation>
-import { ArticleType } from "../lib/definitions";
+import type { ArticleType } from "../lib/definitions";
 import Article from "./Article";
 import "./ArticlesContainer.css";
 
