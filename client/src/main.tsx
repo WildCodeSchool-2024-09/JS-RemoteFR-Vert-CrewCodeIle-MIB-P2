@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import HomePage from "./pages/HomePage";
+import { FavoritesProvider } from "./contexts/FavoritesContext";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -20,26 +21,26 @@ import HomePage from "./pages/HomePage";
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const router = createBrowserRouter([
-  {
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage />,
-        loader: async () => {
-          const response = await fetch(
-            `https://content.guardianapis.com/search?page-size=30&api-key=${apiKey}`,
-          );
-          const data = await response.json();
-          return data.response.results;
-        },
-      },
-      {
-        path: "*",
-        element: <h1>Error 404</h1>,
-      },
-    ],
-  },
+	{
+		element: <App />,
+		children: [
+			{
+				path: "/",
+				element: <HomePage />,
+				loader: async () => {
+					const response = await fetch(
+						`https://content.guardianapis.com/search?page-size=30&api-key=${apiKey}`,
+					);
+					const data = await response.json();
+					return data.response.results;
+				},
+			},
+			{
+				path: "*",
+				element: <h1>Error 404</h1>,
+			},
+		],
+	},
 ]);
 
 /* ************************************************************************* */
@@ -47,14 +48,16 @@ const router = createBrowserRouter([
 // Find the root element in the HTML document
 const rootElement = document.getElementById("root");
 if (rootElement == null) {
-  throw new Error(`Your HTML Document should contain a <div id="root"></div>`);
+	throw new Error(`Your HTML Document should contain a <div id="root"></div>`);
 }
 
 // Render the app inside the root element
 createRoot(rootElement).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+	<StrictMode>
+		<FavoritesProvider>
+			<RouterProvider router={router} />
+		</FavoritesProvider>
+	</StrictMode>,
 );
 
 /**
