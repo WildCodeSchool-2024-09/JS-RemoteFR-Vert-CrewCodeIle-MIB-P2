@@ -16,7 +16,7 @@
 /*MENU BURGER*/
 .sortButtons {
   position: absolute;
-  left: -250px;
+  left: -260px;
   width: 250px;
   transition: right 0.3s ease;
   z-index: 9;
@@ -87,7 +87,28 @@
   top: 200px;
   transition: all .8s ease-out;
   padding: 1em 0;
+  border-radius: 1em;
 }
 .openNav {
   position: absolute;
+}
+@media screen and (min-width: 768px) {
+  .sortBar .sortButtons {
+    position: relative;
+    left: 0;
+    top: 0;
+    border-radius: 1em;
+    margin-right: 1em;
+    padding: 1em 1.5em;
+    box-shadow: 4px 4px 5px #202020;
+  }
+  .btnBurger {
+    display: none;
+  }
+  .buttons {
+    cursor: pointer;
+  }
+  .buttons:hover {
+    box-shadow: 4px 4px 5px #202020;
+  }
 }
