@@ -1,51 +1,51 @@
 body {
-	background-color: #4b4a4a;
+  background-color: #4b4a4a;
 }
 
 .article-card {
-	position: relative;
-	border-radius: 7px;
-	padding: 1em;
-	width: 80%;
-	height: 10em;
-	margin: 0 1em 0 1em;
-	background-color: #969696;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 7px;
+  padding: 1em;
+  width: 80%;
+  height: 10em;
+  margin: 0 1em 0 1em;
+  background-color: #969696;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
-	@media screen and (min-width: 480px) {
-		margin: 0 2em 0 2em;
-	}
+  @media screen and (min-width: 480px) {
+    margin: 0 2em 0 2em;
+  }
 
-	@media screen and (min-width: 680px) {
-		margin: 0 4em 0 4em;
-	}
+  @media screen and (min-width: 680px) {
+    margin: 0 4em 0 4em;
+  }
 
-	@media screen and (min-width: 890px) {
-		height: 17em;
-		width: 93%;
-		margin: 0;
-	}
+  @media screen and (min-width: 890px) {
+    height: 17em;
+    width: 93%;
+    margin: 0;
+  }
 }
 
 .article-card h3 {
-	font-size: 1.2rem;
-	margin: 0 0 10px;
-	color: rgb(240, 238, 238);
-	font-family: "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  color: rgb(240, 238, 238);
+  font-family: "Times New Roman", Times, serif;
 }
 
 .article-card a {
-	color: #ffc400;
-	text-decoration: none;
+  color: #ffc400;
+  text-decoration: none;
 }
 
 .favorite-button {
-	position: absolute;
-	bottom: 1em;
-	right: 0.5em;
-	background: transparent;
-	border: none;
-	font-size: 1.5rem;
-	cursor: pointer;
-	outline: none;
+  position: absolute;
+  bottom: 1em;
+  right: 0.5em;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
 }
