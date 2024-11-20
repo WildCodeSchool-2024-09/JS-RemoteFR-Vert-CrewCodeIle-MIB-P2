@@ -8,19 +8,20 @@ export default function SortBar({
 
   setCurrentCategory: (v: string) => void;
 }) {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const handleClick = (value: string) => setCurrentCategory(value);
   const handleclickMenu = () => {
-    setOpen(!open);
+    setIsOpen(!isOpen);
   };
+
   return (
     <section className="sortBar">
       <div className="burger openNav">
         <button type="button" className="btnBurger" onClick={handleclickMenu}>
-          <span className={`burgerNav ${open ? "open" : ""}`}> </span>
+          <span className={`burgerNav ${isOpen ? "open" : ""}`}> </span>
         </button>
       </div>
-      <div className={`sortButtons ${open ? "openNav" : ""}`}>
+      <div className={`sortButtons ${isOpen ? "openNav" : ""}`}>
         <button
           type="button"
           onClick={() => handleClick("")}

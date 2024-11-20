@@ -19,6 +19,7 @@
   left: -250px;
   width: 250px;
   transition: right 0.3s ease;
+  z-index: 9;
 }
 
 .openNav {
@@ -72,15 +73,21 @@
   height: 30px;
   width: 30px;
   position: relative;
+  z-index: 11;
 }
 
 .btnBurger {
   position: relative;
   bottom: 95px;
+  left: 20px;
 }
 .sortButtons {
   background-color: #6c6c6c;
   position: absolute;
   top: 200px;
   transition: all .8s ease-out;
+  padding: 1em 0;
+}
+.openNav {
+  position: absolute;
 }

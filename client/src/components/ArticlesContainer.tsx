@@ -13,7 +13,7 @@ export default function ArticlesContainer({
     <>
       <section className="articles-container">
         {articles
-          .filter((a) => a.pillarName.includes(currentCategory))
+          .filter((a) => a.pillarName?.includes(currentCategory))
           .map((a: ArticleType) => (
             <Article key={a.id} {...a} />
           ))}
