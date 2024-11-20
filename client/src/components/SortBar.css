@@ -1,17 +1,3 @@
-.sortBar {
-  flex: 1;
-  margin: 1em;
-  border-radius: 7px;
-  padding: 1em;
-  width: 95%;
-  height: fit-content;
-  background-color: #6c6c6c;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
-  @media screen and (max-width: 890px) {
-    display: none;
-  }
-}
 .sortButtons {
   display: flex;
   flex-direction: column;
@@ -25,4 +11,83 @@
   padding: 0.3em;
   border-radius: 5px;
   font-size: 2em;
+}
+
+/*MENU BURGER*/
+.sortButtons {
+  position: absolute;
+  left: -250px;
+  width: 250px;
+  transition: right 0.3s ease;
+  z-index: 9;
+}
+
+.openNav {
+  left: 0;
+}
+
+.burgerNav,
+.burgerNav::before,
+.burgerNav::after {
+  display: block;
+  width: 2em;
+  height: 0.3em;
+  position: relative;
+  background-color: #ffc400;
+  transition: all 0.3s ease;
+}
+
+.burgerNav::before,
+.burgerNav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.burgerNav::before {
+  top: 0.7em;
+}
+
+.burgerNav::after {
+  bottom: 0.7em;
+}
+
+.burgerNav.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.burgerNav.open::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+.burgerNav.open {
+  background-color: #6c6c6c;
+}
+
+.btnBurger {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  z-index: 11;
+}
+
+.btnBurger {
+  position: relative;
+  bottom: 95px;
+  left: 20px;
+}
+.sortButtons {
+  background-color: #6c6c6c;
+  position: absolute;
+  top: 200px;
+  transition: all .8s ease-out;
+  padding: 1em 0;
+}
+.openNav {
+  position: absolute;
 }

@@ -1,17 +1,27 @@
 import "./SortBar.css";
-
+import { useState } from "react";
 export default function SortBar({
   categories,
   setCurrentCategory,
 }: {
   categories: string[];
+
   setCurrentCategory: (v: string) => void;
 }) {
+  const [isOpen, setIsOpen] = useState(false);
   const handleClick = (value: string) => setCurrentCategory(value);
+  const handleclickMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <section className="sortBar">
-      <div className="sortButtons">
+      <div className="burger openNav">
+        <button type="button" className="btnBurger" onClick={handleclickMenu}>
+          <span className={`burgerNav ${isOpen ? "open" : ""}`}> </span>
+        </button>
+      </div>
+      <div className={`sortButtons ${isOpen ? "openNav" : ""}`}>
         <button
           type="button"
           onClick={() => handleClick("")}
