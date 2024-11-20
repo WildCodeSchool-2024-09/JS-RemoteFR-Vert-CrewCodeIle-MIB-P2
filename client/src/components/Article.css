@@ -3,6 +3,7 @@ body {
 }
 
 .article-card {
+  position: relative;
   border-radius: 7px;
   padding: 1em;
   width: 80%;
@@ -36,4 +37,15 @@ body {
 .article-card a {
   color: #ffc400;
   text-decoration: none;
+}
+
+.favorite-button {
+  position: absolute;
+  bottom: 1em;
+  right: 0.5em;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
 }

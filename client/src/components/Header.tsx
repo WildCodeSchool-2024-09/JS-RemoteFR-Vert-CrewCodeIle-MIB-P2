@@ -1,4 +1,5 @@
 import logo from "../assets/images/logoMIBNews.webp";
+
 export default function Header() {
   return (
     <header>
