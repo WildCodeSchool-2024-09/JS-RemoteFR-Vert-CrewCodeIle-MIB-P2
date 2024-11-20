@@ -8,7 +8,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import HomePage from "./pages/HomePage";
-import { FavoritesProvider } from "./contexts/FavoritesContext";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -54,9 +53,7 @@ if (rootElement == null) {
 // Render the app inside the root element
 createRoot(rootElement).render(
 	<StrictMode>
-		<FavoritesProvider>
-			<RouterProvider router={router} />
-		</FavoritesProvider>
+		<RouterProvider router={router} />
 	</StrictMode>,
 );
 

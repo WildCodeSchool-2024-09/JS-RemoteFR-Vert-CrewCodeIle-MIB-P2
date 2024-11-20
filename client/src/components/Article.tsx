@@ -1,11 +1,35 @@
 import "./Article.css";
 
 import type { ArticleType } from "../lib/definitions";
-import { useFavorites } from "../contexts/FavoritesContext";
+import { useEffect, useState } from "react";
+
+const collectFavorites = () => {
+	const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+	return favorites;
+};
 
 const Article = ({ id, webTitle, webUrl }: ArticleType) => {
-	const { favorites, toggleFavorite } = useFavorites();
-	const isFavorite = favorites.includes(id);
+	const [isFavorite, setIsFavorite] = useState<boolean>(false);
+
+	const updateFavorites = (updatedFavorites: string[]) => {
+		localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+		setIsFavorite(updatedFavorites.includes(id));
+	};
+
+	useEffect(() => {
+		const favorites = collectFavorites();
+		setIsFavorite(favorites.includes(id));
+	}, [id]);
+
+	const toggleFavorite = (id: string) => {
+		const favorites = collectFavorites();
+		if (favorites.includes(id)) {
+			const newFavorites = favorites.filter((favId: string) => favId !== id);
+			updateFavorites(newFavorites);
+		} else {
+			updateFavorites([...favorites, id]);
+		}
+	};
 
 	return (
 		<section className="article-card" key={id}>
