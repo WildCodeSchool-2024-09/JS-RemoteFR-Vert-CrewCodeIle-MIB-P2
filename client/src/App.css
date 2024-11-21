@@ -29,8 +29,8 @@ header {
 }
 .favoris {
   border-radius: 0.7em;
-  height: 2.5em;
-  width: 7em;
+  height: fit-content;
+  width: fit-content;
   background-color: #6c6c6c;
   color: white;
   box-shadow: 8px 6px 13px black;
