@@ -14,6 +14,12 @@ const Article = ({ id, webTitle, webUrl }: ArticleType) => {
   const updateFavorites = (updatedFavorites: string[]) => {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     setIsFavorite(updatedFavorites.includes(id));
+
+    const event = new StorageEvent("storage", {
+      key: "favorites",
+      newValue: JSON.stringify(updatedFavorites),
+    });
+    window.dispatchEvent(event);
   };
 
   useEffect(() => {
