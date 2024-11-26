@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { ArticleType } from "../lib/definitions";
 import Article from "./Article";
 import "./ArticlesContainer.css";
@@ -14,7 +15,11 @@ export default function ArticlesContainer({
     return favorites ? JSON.parse(favorites) : ([] as string[]);
   };
 
-  const favoritesSelected = collectFavorites();
+  const [favorites, setFavorites] = useState<string[]>(collectFavorites());
+
+  const handleFavoriteChange = () => {
+    setFavorites(collectFavorites());
+  };
 
   return (
     <>
@@ -22,14 +27,19 @@ export default function ArticlesContainer({
         {articles
           .filter((a) => a.pillarName?.includes(currentCategory))
           .map((a: ArticleType) => (
-            <Article key={a.id} {...a} />
+            <Article key={a.id} {...a} modifyFavorites={handleFavoriteChange} />
           ))}
 
-        {articles
-          .filter((a) => favoritesSelected?.includes(a.id))
-          .map((a: ArticleType) => (
-            <Article key={a.id} {...a} />
-          ))}
+        {favorites.map((favId) => {
+          const article = articles.find((a) => a.id === favId);
+          return article ? (
+            <Article
+              key={article.id}
+              {...article}
+              modifyFavorites={handleFavoriteChange}
+            />
+          ) : null;
+        })}
       </section>
     </>
   );
