@@ -38,7 +38,9 @@ export default function ArticlesContainer({
               {...article}
               modifyFavorites={handleFavoriteChange}
             />
-          ) : null;
+          ) : (
+            []
+          );
         })}
       </section>
     </>
