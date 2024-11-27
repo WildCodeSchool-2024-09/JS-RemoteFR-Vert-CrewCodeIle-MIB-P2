@@ -20,7 +20,13 @@ const categoryImages: { [key: string]: string } = {
   Arts: art,
 };
 
-const Article = ({ id, webTitle, webUrl, pillarName }: ArticleType) => {
+const Article = ({
+  id,
+  webTitle,
+  webUrl,
+  pillarName,
+  modifyFavorites,
+}: ArticleType & { modifyFavorites: () => void }) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
   const updateFavorites = (updatedFavorites: string[]) => {
@@ -41,12 +47,13 @@ const Article = ({ id, webTitle, webUrl, pillarName }: ArticleType) => {
 
   const toggleFavorite = (id: string) => {
     const favorites = collectFavorites();
-    if (favorites.includes(id)) {
+    if (isFavorite) {
       const newFavorites = favorites.filter((favId: string) => favId !== id);
       updateFavorites(newFavorites);
     } else {
       updateFavorites([...favorites, id]);
     }
+    modifyFavorites();
   };
 
   const articleImage = categoryImages[pillarName];

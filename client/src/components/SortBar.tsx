@@ -1,17 +1,21 @@
 import "./SortBar.css";
 import { useState } from "react";
+
 export default function SortBar({
   categories,
   setCurrentCategory,
 }: {
   categories: string[];
-
   setCurrentCategory: (v: string) => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = (value: string) => setCurrentCategory(value);
   const handleclickMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleClickFavorites = () => {
+    setCurrentCategory("favorites");
   };
 
   return (
@@ -39,6 +43,13 @@ export default function SortBar({
             {c}
           </button>
         ))}
+        <button
+          type="button"
+          onClick={handleClickFavorites}
+          className="buttons"
+        >
+          Tous les favoris
+        </button>
       </div>
     </section>
   );
