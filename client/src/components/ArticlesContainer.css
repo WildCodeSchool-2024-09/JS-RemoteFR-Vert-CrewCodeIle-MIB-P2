@@ -17,3 +17,13 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+.buttons {
+  grid-column: 1 / -1;
+  @media screen and (max-width: 890px) {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+}

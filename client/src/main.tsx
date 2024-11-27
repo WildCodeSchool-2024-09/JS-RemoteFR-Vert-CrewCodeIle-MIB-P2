@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
         loader: async () => {
           const response = await fetch(
-            `https://content.guardianapis.com/search?page-size=30&api-key=${apiKey}`,
+            `https://content.guardianapis.com/search?page-size=60&api-key=${apiKey}`,
           );
           const data = await response.json();
           return data.response.results;

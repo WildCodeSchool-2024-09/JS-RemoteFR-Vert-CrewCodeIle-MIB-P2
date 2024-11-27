@@ -17,8 +17,14 @@ export default function ArticlesContainer({
 
   const [favorites, setFavorites] = useState<string[]>(collectFavorites());
 
+  const [visibleArticlesCount, setVisibleArticlesCount] = useState<number>(15);
+
   const handleFavoriteChange = () => {
     setFavorites(collectFavorites());
+  };
+
+  const loadMoreArticles = () => {
+    setVisibleArticlesCount((prevCount) => prevCount + 15);
   };
 
   return (
@@ -26,6 +32,7 @@ export default function ArticlesContainer({
       <section className="articles-container">
         {articles
           .filter((a) => a.pillarName?.includes(currentCategory))
+          .slice(0, visibleArticlesCount)
           .map((a: ArticleType) => (
             <Article key={a.id} {...a} modifyFavorites={handleFavoriteChange} />
           ))}
@@ -42,6 +49,9 @@ export default function ArticlesContainer({
             []
           );
         })}
+        <button type="button" onClick={loadMoreArticles} className="buttons">
+          Plus d'articles
+        </button>
       </section>
     </>
   );
