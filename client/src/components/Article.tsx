@@ -27,7 +27,6 @@ const Article = ({
   pillarName,
   modifyFavorites,
 }: ArticleType & { modifyFavorites: () => void }) => {
-
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
   const updateFavorites = (updatedFavorites: string[]) => {
