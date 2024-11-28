@@ -17,7 +17,7 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 1em;
+  margin: 1em 1em 0 1em;
   padding: 1em;
   border-radius: 1em;
   position: relative;
@@ -75,7 +75,7 @@ a {
 }
 
 /* RESPONSIVE */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   header {
     flex-direction: row;
     justify-content: space-between;

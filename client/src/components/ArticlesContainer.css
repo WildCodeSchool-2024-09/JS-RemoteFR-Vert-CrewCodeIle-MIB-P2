@@ -27,3 +27,31 @@
     padding: 10px;
   }
 }
+
+.search {
+  grid-column: 2 / -1;
+  font-size: 1.5em;
+  margin-left: 1em;
+}
+.search input {
+  width: 50%;
+  height: 1.2em;
+  font-size: 0.7em;
+  margin-left: 1em;
+}
+
+@media screen and (min-width: 890px) {
+  .search {
+    margin-top: 1em;
+    grid-column: 1 / -1;
+    margin-left: 0;
+  }
+  .search input {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .search {
+    grid-column: 2 / -1;
+  }
+}
