@@ -26,12 +26,33 @@ export default function ArticlesContainer({
   const loadMoreArticles = () => {
     setVisibleArticlesCount((prevCount) => prevCount + 15);
   };
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearchTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+  };
 
   return (
     <>
       <section className="articles-container">
+        <div className="search">
+          🔎
+          <input
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            placeholder="Search"
+            onChange={handleSearchTerm}
+          />
+        </div>
         {articles
           .filter((a) => a.pillarName?.includes(currentCategory))
+          .filter((a) =>
+            a.webTitle
+              .toLowerCase()
+              .trim()
+              .includes(searchTerm.toLowerCase().trim()),
+          )
           .slice(0, visibleArticlesCount)
           .map((a: ArticleType) => (
             <Article key={a.id} {...a} modifyFavorites={handleFavoriteChange} />

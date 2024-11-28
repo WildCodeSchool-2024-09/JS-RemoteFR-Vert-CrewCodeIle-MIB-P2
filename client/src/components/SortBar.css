@@ -78,7 +78,7 @@
 
 .btnBurger {
   position: relative;
-  bottom: 95px;
+  bottom: 50px;
   left: 20px;
 }
 .sortButtons {
@@ -92,11 +92,11 @@
 .openNav {
   position: absolute;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   .sortBar .sortButtons {
     position: relative;
     left: 0;
-    top: 0;
+    top: 55px;
     border-radius: 1em;
     margin-right: 1em;
     padding: 1em 1.5em;
