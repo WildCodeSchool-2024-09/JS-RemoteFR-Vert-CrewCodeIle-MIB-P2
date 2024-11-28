@@ -17,7 +17,7 @@ import HomePage from "./pages/HomePage";
 
 /* ************************************************************************* */
 
-const apiKey = import.meta.env.VITE_API_KEY;
+const apiKey = import.meta.env.VITE_MIB_API_KEY;
 
 const router = createBrowserRouter([
   {
