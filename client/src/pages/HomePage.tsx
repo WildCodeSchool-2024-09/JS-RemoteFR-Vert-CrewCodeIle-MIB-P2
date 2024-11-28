@@ -10,7 +10,11 @@ const HomePage = () => {
 
   const [currentCategory, setCurrentCategory] = useState<string>("");
 
-  const categories: string[] = [...new Set(articles.map((a) => a.pillarName))];
+  const categories: string[] = [
+    ...new Set(
+      articles.map((a) => a.pillarName).filter((pillarName) => pillarName),
+    ),
+  ];
 
   return (
     <div className="container">
